@@ -1,7 +1,10 @@
+import Posts from "./pages/Posts";
+
 function App() {
   return (
     <div>
-      {/* Your content here */}
+      Hello World!
+      <Posts />
     </div>
   );
 }
