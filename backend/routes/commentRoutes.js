@@ -1,5 +1,5 @@
 const commentController = require("../controllers/commentController");
-const router = express.Router({ mergeParams: true });
+const router = require("express").Router({ mergeParams: true });
 
 // Routes for /posts/:postid/comments
 

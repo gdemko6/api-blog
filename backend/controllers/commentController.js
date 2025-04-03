@@ -1,4 +1,4 @@
-import { PrismaClient, Prisma } from "@prisma/client";
+const { PrismaClient } = require("@prisma/client");
 
 const asyncHandler = require("express-async-handler");
 const prisma = new PrismaClient();
@@ -43,3 +43,10 @@ const deleteComment = asyncHandler(async (req, res) => {
   });
   res.status(204).json({ deletedComment });
 });
+
+module.exports = {
+  getAllPostComments,
+  createComment,
+  editComment,
+  deleteComment,
+};
