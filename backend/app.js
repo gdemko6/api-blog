@@ -2,8 +2,16 @@ const express = require("express");
 const app = express();
 require("dotenv").config({ path: "../.env" });
 const { Prisma } = require("@prisma/client");
+const cors = require("cors");
 const postRouter = require("./routes/postRoutes");
 const commentRouter = require("./routes/commentRoutes");
+
+const corsOptions = {
+  origin: "http://localhost:5173",
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
