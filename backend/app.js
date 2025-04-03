@@ -5,6 +5,9 @@ const { Prisma } = require("@prisma/client");
 const postRouter = require("./routes/postRoutes");
 const commentRouter = require("./routes/commentRoutes");
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use("/posts", postRouter);
 app.use("/posts/:postid/comments", commentRouter);
 
@@ -35,7 +38,7 @@ app.use((err, req, res, next) => {
         break;
       default:
         statusCode = 500;
-        message = "An unexpected error occurred.";
+        message = "An unexpected database error occurred.";
         break;
     }
     // Not a prisma given error
