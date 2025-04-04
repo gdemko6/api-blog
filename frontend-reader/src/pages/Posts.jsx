@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Card from '../components/Card';
+import './Posts.css';
 
 function Posts() {
   const [posts, setPosts] = useState([]);
@@ -6,23 +8,22 @@ function Posts() {
   useEffect(() => {
     const getPostTitles = async () => {
       try {
-        const response = await fetch("http://localhost:3000/posts");
+        const response = await fetch('http://localhost:3000/posts');
         const data = await response.json();
-        const fetchedPosts = data.posts;
-        setPosts(fetchedPosts);
-        
+        setPosts(data.posts);
+        console.log(data.posts);
       } catch (error) {
-        console.error("Error fetching posts:", error);
+        console.error('Error fetching posts:', error);
       }
     };
 
     getPostTitles();
-  }, []); 
+  }, []);
 
   return (
-    <div>
-      {posts.map((post, index) => (
-        <div key={index}>{post.title}</div>
+    <div className="posts-grid">
+      {posts.map((post) => (
+        <Card key={post.id} post={post} />
       ))}
     </div>
   );
