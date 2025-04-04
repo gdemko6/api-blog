@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './card.css';
+import './postcard.css';
 
 
-function Card({ post }) {
+function PostCard({ post }) {
   return (
     <Link to={`/posts/${post.id}`} className="card-link">
       <div className="card">
@@ -14,4 +14,4 @@ function Card({ post }) {
   );
 }
 
-export default Card;
+export default PostCard;

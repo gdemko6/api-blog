@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Card from '../components/Card';
+import PostCard from '../components/PostCard';
 import './Posts.css';
 
 function Posts() {
@@ -23,7 +23,7 @@ function Posts() {
   return (
     <div className="posts-grid">
       {posts.map((post) => (
-        <Card key={post.id} post={post} />
+        <PostCard key={post.id} post={post} />
       ))}
     </div>
   );
