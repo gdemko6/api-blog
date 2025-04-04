@@ -10,6 +10,7 @@ function Posts() {
         const data = await response.json();
         const fetchedPosts = data.posts;
         setPosts(fetchedPosts);
+        
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
